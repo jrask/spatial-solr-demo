@@ -10,7 +10,7 @@ public class Attraction {
 	private Location location;
 	private String type;
 	private String name;
-	
+	 
 	public Attraction(Location location, String type, String name) {
 		super();
 		this.location = location;

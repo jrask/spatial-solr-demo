@@ -12,7 +12,7 @@ public class Location {
 	double lng = 13.069;
 	
 	public double getLat() {
-		return lat;
+		return lat; 
 	}
 	
 	public double getLng() {

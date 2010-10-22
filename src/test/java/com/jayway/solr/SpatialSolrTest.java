@@ -11,10 +11,10 @@ import java.util.List;
 import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.common.SolrDocument;
 import org.junit.After;
-import org.junit.Before;
+import org.junit.Before; 
 import org.junit.BeforeClass;
 import org.junit.Test;
-
+ 
 public class SpatialSolrTest {
 
 	private static final NumberFormat kmDistanceFormat = new DecimalFormat("###.00");
@@ -61,7 +61,7 @@ public class SpatialSolrTest {
 		/*
 		 * Our first test wants to find all cafes within 30km radius from
 		 * Lomma (center)
-		 * Since both Malmš and Staffanstorp are within that range we expect
+		 * Since both Malmï¿½ and Staffanstorp are within that range we expect
 		 * to get 2 documents back
 		 */
 		assertEquals(2, client.search("type:cafe",Lomma,10).size());
