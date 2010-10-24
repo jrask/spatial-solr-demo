@@ -3,6 +3,4 @@
 # http://www.jteam.nl/news/spatialsolr.html
 #
 
-[ TODO ]
-
- * Cleanup schema.xml and solrconfig.xml and add to project.
+This code is part of a blogpost at http://blog.jayway.com
