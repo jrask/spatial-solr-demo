@@ -58,20 +58,20 @@ public class SpatialSolrTest {
 		client.index(new Attraction(Malmo, "cafe", "Malmo coffee shop"));
 		client.commit();
 		
-		/*
-		 * Our first test wants to find all cafes within 30km radius from
-		 * Lomma (center)
-		 * Since both Malmö and Staffanstorp are within that range we expect
-		 * to get 2 documents back
-		 */
+		// None cafe within 1km from Lomma
 		assertEquals(0, client.search("type:cafe",Lomma,1).size());
+		
+		// One cafe within 8km from Lomma
 		assertEquals(1, client.search("type:cafe",Lomma,8).size());
+		
+		// Two cafe within 10km from Lomma
 		assertEquals(2, client.search("type:cafe",Lomma,10).size());
 		
 		// Get the list
 		List<SolrDocument> list = client.search("type:cafe",Lomma,10);
-		verifyDocument(list.get(0),"Staffanstorp coffee shop",9.1,9.3);
-		verifyDocument(list.get(1),"Malmo coffee shop",7.8,7.9);
+		
+		verifyDocument(list.get(1),"Staffanstorp coffee shop",9.1,9.3);
+		verifyDocument(list.get(0),"Malmo coffee shop",7.8,7.9);
 	}
 	
 	private void verifyDocument(SolrDocument doc, String name, double min, double max) {

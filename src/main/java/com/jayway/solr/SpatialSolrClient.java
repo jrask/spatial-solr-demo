@@ -19,6 +19,8 @@ public class SpatialSolrClient {
 	private static final String QUERY = 
 		"{!spatial lat=%s long=%s radius=%s unit=km threadCount=2} %s"; 
 	
+	String s = "{!spatial circles=%s,%s,%s} %s";
+	
 	private SolrServer solr;
 	
 	
@@ -38,7 +40,7 @@ public class SpatialSolrClient {
 	}
 	
 	public SolrDocumentList search(String query, Location loc, double radius) throws SolrServerException {
-		return search(String.format(QUERY,loc.getLat(),loc.getLng(),radius,query));		
+		return search(String.format(s,loc.getLat(),loc.getLng(),radius,query));		
 	}
 	
 	public void index(Attraction attraction) throws SolrServerException, IOException {
